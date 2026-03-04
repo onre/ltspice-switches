@@ -1,3 +1,5 @@
+dnl -- M4 macros pertaining to LTspice
+dnl --
 dnl -- minimum and maximum resistance values
 define(R_HUGE,`(1/Gmin)')dnl
 define(R_TINY,`Gmin')dnl

@@ -1,13 +1,14 @@
 M4		?= m4
-LTSPICE_M4_LIB	= m4/ltspice.m4
+M4_LIBS		= m4/ltspice.m4 m4/switches.m4
 SYMBOLS		= spst_no.asy spst_nc.asy spdt.asy
+LIBS		= switches.lib
 
-all: switches.lib $(SYMBOLS)
+all: $(LIBS) $(SYMBOLS)
 
 clean:
-	rm -f switches.lib $(SYMBOLS)
+	rm -f $(LIBS) $(SYMBOLS)
 
-switches.lib: switches.lib.in $(LTSPICE_M4_LIB)
-	$(M4) $(LTSPICE_M4_LIB) $@.in > $@
-%.asy: %.asy.in
-	$(M4) $(LTSPICE_M4_LIB) $< > $@
+%.lib: %.lib.in $(M4_LIBS)
+	$(M4) $(M4_LIBS) $< > $@
+%.asy: %.asy.in $(M4_LIBS)
+	$(M4) $(M4_LIBS) $< > $@

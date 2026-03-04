@@ -13,7 +13,8 @@ SYMATTR Value in=0
 SYMATTR SpiceModel sw_spdt
 SYMATTR Prefix X
 SYMATTR Description SPDT switch
-SYMATTR ModelFile switches.lib
+SYMATTR InstName SW_INST_PREFIX
+SYMATTR ModelFile SW_LIB_FILE
 PIN -80 32 NONE 8
 PINATTR PinName 1
 PINATTR SpiceOrder 1
