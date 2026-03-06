@@ -1,0 +1,21 @@
+Version 4
+SymbolType CELL
+LINE Normal -64 16 -80 16
+LINE Normal -16 16 -32 16
+LINE Normal -36 16 -60 16
+CIRCLE Normal -60 18 -64 14
+CIRCLE Normal -32 18 -36 14
+WINDOW 0 -37 -11 Left 1
+WINDOW 3 -31 2 Left 0
+SYMATTR SpiceModel sw_spst_nc
+SYMATTR Value in=0
+SYMATTR Prefix X
+SYMATTR Description SPST NC switch
+SYMATTR InstName SW
+SYMATTR ModelFile switches.lib
+PIN -80 16 NONE 8
+PINATTR PinName 1
+PINATTR SpiceOrder 1
+PIN -16 16 NONE 8
+PINATTR PinName 2
+PINATTR SpiceOrder 2

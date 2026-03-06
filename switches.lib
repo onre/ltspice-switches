@@ -1,0 +1,37 @@
+* switches.lib - parameter controlled switches for LTspice
+* 
+* Just how hard can it be to describe switch positions in an unambiguous
+* manner? I ended up choosing "in" for when the switch is ... depressed?
+* Poor switch! I hope you get well soon.
+* 
+* "nin" is "normalized in", value being always either 0 or 1
+* (1/Gmin) and Gmin are substituted with values from m4/ltspice.m4
+*
+
+.SUBCKT sw_spst_nc 1 2
+.param nin=if(in,1,0)
+R1 1 2 {nin * (1/Gmin) + Gmin}
+.ENDS
+
+.SUBCKT sw_spst_no 1 2
+.param nin=if(in,0,1)
+R1 1 2 {nin * (1/Gmin) + Gmin}
+.ENDS
+
+.SUBCKT sw_dpst_nc 1 2 3 4
+.param nin=if(in,1,0)
+R1 1 2 {nin * (1/Gmin) + Gmin}
+R2 3 4 {nin * (1/Gmin) + Gmin}
+.ENDS
+
+.SUBCKT sw_dpst_no 1 2 3 4
+.param nin=if(in,0,1)
+R1 1 2 {nin * (1/Gmin) + Gmin}
+R2 3 4 {nin * (1/Gmin) + Gmin}
+.ENDS
+
+.SUBCKT sw_spdt 1 2 3
+.param nin=if(in,0,1)
+R1 1 2 {inv(nin) * (1/Gmin) + Gmin}
+R2 1 3 {nin * (1/Gmin) + Gmin}
+.ENDS
